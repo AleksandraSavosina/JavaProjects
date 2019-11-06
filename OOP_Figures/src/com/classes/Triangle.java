@@ -2,32 +2,38 @@ package com.classes;
 
 import com.classes.Point;
 
+import java.util.Objects;
+
 public class Triangle {
     private Point v1;
     private Point v2;
     private Point v3;
-    //int x1; int y1; int x2; int y2; int x3; int y3;
+    private enum Type {
+        EQUILATERAL ("Equilateral"),
+        ISOSCELES ("Isosceles"),
+        SCALENE ("Scalene");
+        private String type;
 
-//    public Triangle(Point v1, Point v2, Point v3) {
-//        this.v1 = new Point(v1.getX(), v1.getY());
-//        this.v2 = new Point(v2.getX(), v2.getY());
-//        this.v3 = new Point(v3.getX(), v3.getY());
-//    }
+        Type(String type) {
+            this.type = type;
+        }
 
-    public Triangle (Point p1, Point p2, Point p3){
-        this.v1 = p1;
-        this.v2 = p2;
-        this.v3 = p3;
+        @Override
+        public String toString() {
+            return type;
+        }
+    };
+
+    public Triangle(Point v1, Point v2, Point v3) {
+        this.v1 = new Point(v1.getX(), v1.getY());
+        this.v2 = new Point(v2.getX(), v2.getY());
+        this.v3 = new Point(v3.getX(), v3.getY());
     }
 
     public Triangle(int x1, int y1, int x2, int y2, int x3, int y3) {
             v1 = new Point(x1, y1);
             v2 = new Point(x2, y2);
             v3 = new Point(x3, y3);
-//
-//        this.v1.setXY(x1, y1);
-//        this.v2.setXY(x2, y2);
-//        this.v3.setXY(x3, y3);
     }
 
     @Override
@@ -48,9 +54,25 @@ public class Triangle {
         double s3 = Math.sqrt((v3.getX() - v1.getX()) * (v3.getX() - v1.getX()) + (v3.getY() - v1.getY()) * (v3.getY() - v1.getY()));
 
         if (s1 == s2 && s1 == s3)
-            return "Equilateral";
+            return Type.EQUILATERAL.toString();
         if (s1 == s2 || s1 == s3 || s2 == s3)
-            return "Isosceles";
-        return "Scalene";
+            return Type.ISOSCELES.toString();
+        return Type.SCALENE.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Triangle triangle = (Triangle) o;
+        return v1.equals(triangle.v1) && v2.equals(triangle.v2) &&
+                v3.equals(triangle.v3);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(v1, v2, v3);
     }
 }

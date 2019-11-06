@@ -1,6 +1,8 @@
 package com.classes;
 
 import java.sql.SQLOutput;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class Book {
     String name;
@@ -52,5 +54,24 @@ public class Book {
             tmp += str + ", ";
 
         return "Book[name = " + name + ", authors = " + tmp + "]";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Book book = (Book) o;
+        return qty == book.qty && name.equals(book.name) &&
+                Arrays.equals(authors, book.authors) && Double.compare(book.price, price) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + Arrays.hashCode(authors);
+        result = 31 * result + Objects.hash(name, price, qty);
+        return result;
     }
 }

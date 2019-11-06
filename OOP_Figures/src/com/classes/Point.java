@@ -1,5 +1,7 @@
 package com.classes;
 
+import java.util.Objects;
+
 public class Point {
     private int x;
     private int y;
@@ -59,5 +61,20 @@ public class Point {
     public double distance() {
         double dis = Math.sqrt((this.x) ^ 2 + (this.y) ^ 2);
         return dis;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || this.getClass() != o.getClass())
+            return false;
+        Point point = (Point) o;
+        return x == point.x && y == point.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }

@@ -1,12 +1,12 @@
 package com.classes;
 
+import java.util.Objects;
+
 public class Rectangle {
     private float width;
     private float height;
 
     public Rectangle() {
-        width = 1.0f;
-        height = 1.0f;
     }
 
     public Rectangle(float width, float height) {
@@ -41,5 +41,21 @@ public class Rectangle {
 
     public float getPerimeter() {
         return 2 * (width + height);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Rectangle rectangle = (Rectangle) o;
+        return Float.compare(rectangle.width, width) == 0 &&
+                Float.compare(rectangle.height, height) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(width, height);
     }
 }
