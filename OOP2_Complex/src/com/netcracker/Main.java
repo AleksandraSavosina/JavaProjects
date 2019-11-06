@@ -16,7 +16,7 @@ public class Main {
         Polynomial polynom111 = new Polynomial(co1);
         System.out.println(polynom111.toString() + "\n");
 
-        System.out.println((polynom.add(polynom111)).toString());
+        System.out.println((polynom.multiply(polynom111)).toString());
 
     }
 }
