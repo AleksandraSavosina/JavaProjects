@@ -47,6 +47,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        System.out.println("Employee[id = " + id + ", name = " + this.getName() + ", salary = " + salary + "]");
-        return null;
-    }}
+        return "Employee[id = " + id + ", name = " + this.getName() + ", salary = " + salary + "]";
+    }
+}

@@ -44,4 +44,9 @@ public class Author {
     public void print() {
         System.out.print(name + " ");
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

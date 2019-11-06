@@ -36,8 +36,7 @@ public class Circle {
 
     @Override
     public String toString() {
-        System.out.println("Circle[radius = " + radius + ", color = " + color + "]");
-        return null;
+        return "Circle[radius = " + radius + ", color = " + color + "]";
     }
 
     public double getArea () {

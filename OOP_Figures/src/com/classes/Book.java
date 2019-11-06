@@ -47,10 +47,10 @@ public class Book {
 
     @Override
     public String toString() {
-        System.out.print("Book[name = " + name + ", authors = ");
-        for (Author i: authors)
-            i.print();
-        System.out.println("]");
-        return null;
+        String tmp = "";
+        for (Author str: authors)
+            tmp += str + ", ";
+
+        return "Book[name = " + name + ", authors = " + tmp + "]";
     }
 }

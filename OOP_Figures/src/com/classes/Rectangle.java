@@ -32,8 +32,7 @@ public class Rectangle {
 
     @Override
     public String toString() {
-        System.out.println("Rectangle[width = " + width + ", height = " + height + "]");
-        return null;
+        return "Rectangle[width = " + width + ", height = " + height + "]";
     }
 
     public float getArea() {
