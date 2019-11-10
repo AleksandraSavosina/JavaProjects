@@ -1,10 +1,7 @@
-package com.figures;
+package com.abstractFigure;
 
 public class Main {
     public static void main(String... args) {
-        Shape shape = new Shape("кув", false);
-        System.out.println(shape.toString());
-
         Circle circle = new Circle("green", true, 7);
         System.out.println("______Area of circle: " + circle.getArea());
         System.out.println("_Perimeter of circle: " + circle.getPerimeter());

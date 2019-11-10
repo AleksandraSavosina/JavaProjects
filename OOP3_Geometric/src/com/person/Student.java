@@ -60,12 +60,12 @@ public class Student extends Person {
     @Override
     public int hashCode() {
         int result = 17;
-        result += 31 * result + year;
-        result += 31 * result + fee;
-        String tmp = program;
-        char[] ascii = tmp.toCharArray();
-        result += 31 * result + (int)ascii[0];
+    result += 31 * result + year;
+    result += 31 * result + fee;
+    String tmp = program;
+    char[] ascii = tmp.toCharArray();
+    result += 31 * result + (int)ascii[0];
 
         return result;
-    }
+}
 }
